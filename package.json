@@ -29,5 +29,15 @@
     "pdf-lib": "^1.17.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LosDevelopers/Almacenadora.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/LosDevelopers/Almacenadora/issues"
+  },
+  "homepage": "https://github.com/LosDevelopers/Almacenadora#readme"
 }
