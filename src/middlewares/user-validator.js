@@ -1,10 +1,10 @@
 import { body, param } from "express-validator";
-import { emailExists } from "../helpers/db-validator.js";
+import { emailExists } from "../helpers/db-validators.js";
 import { validateField } from "./validate-field.js";
 import { handleErrors } from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
 import { hasRoles } from "./validate-roles.js";
-import { userExists, isClient } from "../helpers/db-validator.js"; 
+import { userExists, isClient } from "../helpers/db-validators.js"; 
 
 export const validatorRegister = [
     body("name").notEmpty().withMessage("Name is required"),

@@ -1,10 +1,6 @@
 import { Router } from "express";
 import { register, login } from "./auth.controller.js";
-
-// Ajusta los imports de los middlewares según tu estructura
-import { emailExists } from "../helpers/db-validators.js";
-import { check } from "express-validator";
-import { validateFields } from "../middlewares/validate-fields.js";
+import { validatorRegister, validatorLogin } from "../middlewares/user-validator.js";
 
 const router = Router();
 
