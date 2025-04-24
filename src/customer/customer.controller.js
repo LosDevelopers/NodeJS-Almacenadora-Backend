@@ -40,6 +40,10 @@ export const editCustomers = async (req, res) => {
                 customer
             })
         }
+        return res.status(200).json({
+            message: "Category successfully updated",
+            customer
+        })
     }catch(failure){
         return res.status(500).json({
             message: "Error updating the customers",
