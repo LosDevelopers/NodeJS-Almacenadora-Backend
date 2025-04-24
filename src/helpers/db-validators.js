@@ -1,4 +1,7 @@
 import User from "../user/user.model.js";
+import Product from "../models/product.js"
+import Category from "../models/category.js"
+import Supplier from "../models/supplier.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -36,5 +39,26 @@ export const isAdmin = async (uid = " ") =>{
 
     if(existe.role !== "ADMIN_ROLE" ){
         throw new Error("Is not a admin")
+    }
+}
+
+export const productExists = async (pid = ' ') => {
+    const existe = await Product.findById(pid)
+    if(!existe){
+        throw new Error("No existe el producto con el ID proporcionado")
+    }
+}
+
+export const categoryExists = async (cid = ' ') => {
+    const existe = await Category.findById(cid)
+    if(!existe){
+        throw new Error("No existe la categoria con el ID proporcionado")
+    }
+}
+
+export const supplierExists = async (sid = ' ') => {
+    const existe = await Supplier.findById(sid)
+    if(!existe){
+        throw new Error("No existe el proveedor con el ID proporcionado")
     }
 }

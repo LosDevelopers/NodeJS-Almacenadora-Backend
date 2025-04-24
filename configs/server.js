@@ -9,6 +9,7 @@ import { swaggerDocs, swaggerUi } from "./swagger.js";
 import  apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import authRouter from "../src/auth/auth.routes.js";
 import userRouter from "../src/user/user.routes.js";
+import productRouter from "../src/product/product.routes.js";
 import {createAdmin} from "./default-data.js"
 
 const middlewares = (app) => {
@@ -24,6 +25,7 @@ const routes = (app) => {
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.use("/Almacenadora/v1/auth", authRouter);
     app.use("/Almacenadora/v1/clients", userRouter);
+    app.use("/Almacenadora/v1/products", productRouter);
 }
 
 const conectarDB = async () => {
