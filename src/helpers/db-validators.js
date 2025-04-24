@@ -48,13 +48,6 @@ export const productExists = async (pid = ' ') => {
     }
 }
 
-export const categoryExists = async (cid = ' ') => {
-    const existe = await Category.findById(cid)
-    if(!existe){
-        throw new Error("No existe la categoria con el ID proporcionado")
-    }
-}
-
 /*export const supplierExists = async (sid = ' ') => {
     const existe = await Supplier.findById(sid)
     if(!existe){

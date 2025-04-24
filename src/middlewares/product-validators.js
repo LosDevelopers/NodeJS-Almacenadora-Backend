@@ -1,9 +1,9 @@
 import { body, param, query } from 'express-validator';
-import { productExists, categoryExists} from "../helpers/db-validators.js"
-import { validateField } from "./validate-field.js"
-import { validateJWT } from "./validate-jwt.js"
-import { hasRoles } from "./validate-roles.js"
-import { handleErrors } from "./handle-errors.js"
+import { productExists } from "../helpers/db-validators.js";
+import { validateField } from "./validate-field.js";
+import { validateJWT } from "./validate-jwt.js";
+import { hasRoles } from "./validate-roles.js";
+import { handleErrors } from "./handle-errors.js";
 
 export const createProductValidator = [
     validateJWT,
@@ -11,9 +11,9 @@ export const createProductValidator = [
     body('name').notEmpty().withMessage('Name is required').isLength({ max: 50 }).withMessage('Name must be less than 50 characters'),
     body('price').notEmpty().withMessage('Price is required').isNumeric().withMessage('Price must be a number'),
     body('description').notEmpty().withMessage('Description is required').isLength({ max: 255 }).withMessage('Description must be less than 255 characters'),
-    body('Category').custom(categoryExists),
+    body('category').notEmpty().withMessage('Category is required').isLength({ max: 50 }).withMessage('Category name must be less than 50 characters'),
     body('amount').notEmpty().withMessage('Amount is required').isNumeric().withMessage('Amount must be a number'),
-    //body('supplier').custom(supplierExists),
+    // body('supplier').notEmpty().withMessage('Supplier is required').isMongoId().withMessage('Invalid supplier ID'), // Comentado
     body('entryDate').notEmpty().withMessage('Entry date is required').isDate().withMessage('Entry date must be a date'),
     body('expirationDate').notEmpty().withMessage('Expiration date is required').isDate().withMessage('Expiration date must be a date'),
     validateField,
@@ -36,9 +36,8 @@ export const updateProductValidator = [
     body('name').optional().isLength({ max: 50 }).withMessage('Name must be less than 50 characters'),
     body('price').optional().isNumeric().withMessage('Price must be a number'),
     body('description').optional().isLength({ max: 255 }).withMessage('Description must be less than 255 characters'),
-    body('Category').optional().custom(categoryExists),
+    body('category').optional().isLength({ max: 50 }).withMessage('Category name must be less than 50 characters'),
     body('amount').optional().isNumeric().withMessage('Amount must be a number'),
-    //body('supplier').optional().custom(supplierExists), // Descomentado si es necesario
     body('entryDate').optional().isDate().withMessage('Entry date must be a date'),
     body('expirationDate').optional().isDate().withMessage('Expiration date must be a date'),
     validateField,

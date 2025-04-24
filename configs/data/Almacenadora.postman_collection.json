@@ -207,6 +207,216 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "addProdcuts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU0NjMwNTIsImV4cCI6MTc0NTQ2NjY1Mn0.c6OCGI0N6TZHRD7Dc2G8LaYqzGS3DUeEontE_Rkgm_Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Laptop\",\r\n  \"price\": 1200,\r\n  \"description\": \"High-performance laptop\",\r\n  \"category\": \"Electronics\",\r\n  \"amount\": 50,\r\n  \"supplier\": \"6806d7ecda5da4c8bdae84af\",\r\n  \"entryDate\": \"2025-04-23\",\r\n  \"expirationDate\": \"2026-04-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/products/addProduct",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"products",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU0NjMwNTIsImV4cCI6MTc0NTQ2NjY1Mn0.c6OCGI0N6TZHRD7Dc2G8LaYqzGS3DUeEontE_Rkgm_Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"Computadora\",\r\n  \"price\": 1300,\r\n  \"amount\": 45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/products/updateProduct/6809aaf8ac9762330b07f929",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"products",
+								"updateProduct",
+								"6809aaf8ac9762330b07f929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU0NjMwNTIsImV4cCI6MTc0NTQ2NjY1Mn0.c6OCGI0N6TZHRD7Dc2G8LaYqzGS3DUeEontE_Rkgm_Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/products/getProduct/6809aaf8ac9762330b07f929",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"products",
+								"getProduct",
+								"6809aaf8ac9762330b07f929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/products/getProducts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"products",
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU0NjMwNTIsImV4cCI6MTc0NTQ2NjY1Mn0.c6OCGI0N6TZHRD7Dc2G8LaYqzGS3DUeEontE_Rkgm_Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/products/deleteProduct/6809afdc311b8ae4b9dba180",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"products",
+								"deleteProduct",
+								"6809afdc311b8ae4b9dba180"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
