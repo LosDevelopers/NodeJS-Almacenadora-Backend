@@ -20,6 +20,8 @@ const options ={
         ]
     },
     apis:[
+        './src/user/user.routes.js',
+        './src/product/product.routes.js'
     ]
 }
 
