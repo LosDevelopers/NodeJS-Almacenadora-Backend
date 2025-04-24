@@ -5,12 +5,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "nodemon index.js"
   },
   "author": "Developers",
   "license": "MIT",
   "type": "module",
-  "description": "Api de gestion hotelera",
+  "description": "Api de gestion de Almacenadora de productos",
   "dependencies": {
     "adoptionsystem": "file:",
     "argon2": "^0.41.1",
@@ -26,8 +26,18 @@
     "mongoose": "^8.9.5",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9",
     "pdf-lib": "^1.17.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LosDevelopers/Almacenadora.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/LosDevelopers/Almacenadora/issues"
+  },
+  "homepage": "https://github.com/LosDevelopers/Almacenadora#readme"
 }
