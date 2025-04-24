@@ -17,20 +17,20 @@ const productSchema = Schema({
         maxlength: [255, 'Description must be less than 255 characters']
     },
     category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        required: [true, 'Category is required']
+        type: String,
+        required: [true, 'Category name is required'],
+        maxlength: [50, 'Category name must be less than 50 characters']
     },
     amount: {
         type: Number,
         required: [true, 'Amount is required'],
         min: [0, 'Amount must be greater than or equal to 0']
     },
-    supplier: {
+    /*supplier: {
         type: Schema.Types.ObjectId,
         ref: 'Supplier',
         required: [true, 'Supplier is required']
-    },
+    },*/
     entryDate: {
         type: Date,
         required: [true, 'Entry date is required'],

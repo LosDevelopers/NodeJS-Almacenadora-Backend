@@ -12,7 +12,7 @@ export const createAdmin = async () => {
         const encryptedPassword = await hash(aPassword);
  
         const aUser = new User({
-            name: " ",
+            name: "Admin",
             email: aEmail,
             password: encryptedPassword,
             role: "ADMIN_ROLE",

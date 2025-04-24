@@ -1,7 +1,6 @@
 import User from "../user/user.model.js";
-import Product from "../models/product.js"
-import Category from "../models/category.js"
-import Supplier from "../models/supplier.js"
+import Product from "../product/product.model.js"
+//import Supplier from "../supplier/supplier.model.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -56,9 +55,9 @@ export const categoryExists = async (cid = ' ') => {
     }
 }
 
-export const supplierExists = async (sid = ' ') => {
+/*export const supplierExists = async (sid = ' ') => {
     const existe = await Supplier.findById(sid)
     if(!existe){
         throw new Error("No existe el proveedor con el ID proporcionado")
     }
-}
+}*/

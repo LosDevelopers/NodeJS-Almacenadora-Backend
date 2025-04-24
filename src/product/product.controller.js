@@ -1,4 +1,4 @@
-import Product from './product.model';
+import Product from './product.model.js';
 
 export const addProduct = async (req, res) => {
     try {
@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 export const getproduct = async (req, res) => {
     try {
         const { pid } = req.params;
-        const product = await Product.findById(pid).populate('category').populate('supplier');
+        const product = await Product.findById(pid).populate('supplier');
 
         if ( !product ) {
             return res.status(404).json({
@@ -45,7 +45,7 @@ export const getproduct = async (req, res) => {
 
 export const getProducts = async (req, res) => {
     try {
-        const products = await Product.find().populate('category').populate('supplier');
+        const products = await Product.find().populate('supplier');
 
         return res.status(200).json({
             success: true,
@@ -76,7 +76,6 @@ export const getProductsAdvanced = async (req, res) => {
                 .sort({ name: sortOrder })
                 .skip(Number(skip))
                 .limit(Number(limit))
-                .populate('category')
                 .populate('supplier'),
         ]);
 
