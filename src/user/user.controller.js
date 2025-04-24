@@ -74,18 +74,24 @@ export const deleteUserAdmin = async (req, res) => {
 
 export const deleteUserClient = async (req, res) => {
     try {
+        const { uid } = req.params;  
+
         const { usuario } = req;
-
-        console.log(usuario._id)
-
-        if (!usuario) {
-            return res.status(400).json({
+        if (usuario.role !== "ADMIN_ROLE") {
+            return res.status(403).json({
                 success: false,
-                message: "Usuario no proporcionado"
+                message: "No tienes permisos para realizar esta acción"
             });
         }
 
-        const user = await User.findByIdAndUpdate(usuario._id, { status: false }, { new: true });
+        const user = await User.findByIdAndUpdate(uid, { status: false }, { new: true });
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "Usuario no encontrado"
+            });
+        }
 
         return res.status(200).json({
             success: true,

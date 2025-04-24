@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getUserById, getUsers, deleteUserClient, updatePassword, updateUserUser } from "./user.controller.js";
-import { getUserByIdValidator, updatePasswordValidator, deleteUserValidatorClient, updateUserValidatorClient } from "../middlewares/user-validator.js";
+import { getUserByIdValidator, updatePasswordValidator, deleteUserValidatorAdmin, updateUserValidatorClient } from "../middlewares/user-validator.js";
 
 const router = Router();
 
@@ -56,7 +56,7 @@ router.get("/", getUsers);
  *       404:
  *         description: Client not found
  */
-router.delete("/deleteUser", deleteUserValidatorClient, deleteUserClient);
+router.delete("/deleteUser/:uid", deleteUserValidatorAdmin, deleteUserClient);
 
 /**
  * @swagger
