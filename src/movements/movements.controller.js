@@ -92,3 +92,22 @@ export const getMovementById = async (req, res) => {
         });
     }
 }
+
+export const getMovementsByProduct = async (req, res) => { 
+    try {
+        const { pid } = req.params;
+        const movements = await Movement.find({ product: pid }).populate('product', 'name').sort({ date: -1 });
+        if (!movements) {
+            return res.status(404).json({ message: 'No movements found for this product' });
+        }
+        return res.status(200).json({
+            success: true,
+            movements
+        });
+    } catch (err) {
+        return res.status(500).json({
+            message: 'Error getting movements',
+            error: err.message
+        });
+    }
+}

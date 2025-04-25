@@ -21,7 +21,8 @@ const options ={
     },
     apis:[
         './src/user/user.routes.js',
-        './src/product/product.routes.js'
+        './src/product/product.routes.js',
+        './src/movements/movements.routes.js',
     ]
 }
 

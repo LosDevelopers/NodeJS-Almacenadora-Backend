@@ -32,3 +32,11 @@ export const getMovementValidator = [
     validateField,
     handleErrors
 ];
+
+export const getMovementsByProductValidator = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    param('pid').isMongoId().withMessage('Invalid product ID'),
+    validateField,
+    handleErrors
+];

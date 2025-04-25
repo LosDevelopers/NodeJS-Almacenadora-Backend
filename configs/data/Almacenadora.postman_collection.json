@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d70b80bd-94ad-41b2-99d4-d29fd2876b53",
+		"_postman_id": "170a8f59-2e58-4f10-af34-89be7de1c6e3",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38544411"
+		"_exporter_id": "41959042"
 	},
 	"item": [
 		{
@@ -411,6 +411,161 @@
 								"products",
 								"deleteProduct",
 								"6809afdc311b8ae4b9dba180"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movements",
+			"item": [
+				{
+					"name": "newMovement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU1OTgwNDMsImV4cCI6MTc0NTYwMTY0M30.ywnHDzDk6YauM88nfR9z243gdLbtlwTWbttcCUUushg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"680bb6c1be2accb333fbfcc2\",\r\n    \"type\": \"entry\",\r\n    \"quantity\": \"10\",\r\n    \"note\": \"ingrerso de productos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/newMovement",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"newMovement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMovements",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU1OTgwNDMsImV4cCI6MTc0NTYwMTY0M30.ywnHDzDk6YauM88nfR9z243gdLbtlwTWbttcCUUushg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMovement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU1OTgwNDMsImV4cCI6MTc0NTYwMTY0M30.ywnHDzDk6YauM88nfR9z243gdLbtlwTWbttcCUUushg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movements/680bbc3bf1c8286e72d21d7b",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"movements",
+								"680bbc3bf1c8286e72d21d7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU1OTgwNDMsImV4cCI6MTc0NTYwMTY0M30.ywnHDzDk6YauM88nfR9z243gdLbtlwTWbttcCUUushg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movement/680bb6c1be2accb333fbfcc2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"movement",
+								"680bb6c1be2accb333fbfcc2"
 							]
 						}
 					},
