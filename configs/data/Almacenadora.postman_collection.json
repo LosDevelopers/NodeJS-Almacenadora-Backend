@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "170a8f59-2e58-4f10-af34-89be7de1c6e3",
+		"_postman_id": "21076238-620e-4e16-9bfe-31397d5233b5",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41959042"
+		"_exporter_id": "41959681"
 	},
 	"item": [
 		{
@@ -84,6 +84,9 @@
 			"item": [
 				{
 					"name": "get clients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -97,6 +100,10 @@
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
 						"url": {
 							"raw": "http://127.0.0.1:3001/Almacenadora/v1/clients/",
 							"protocol": "http",
@@ -566,6 +573,207 @@
 								"movements",
 								"movement",
 								"680bb6c1be2accb333fbfcc2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "supplier",
+			"item": [
+				{
+					"name": "addSupplier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBjMzE4MjlhZGIwY2Q5OWYzMmE4NDIiLCJpYXQiOjE3NDU2Mjk1OTMsImV4cCI6MTc0NTYzMzE5M30.4B_kgpiigLKz28X77bTp4KdZ9mETWN6DNqtM6oIg1v8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La popular\",\r\n  \"email\": \"acliente@ilpsa.com\",\r\n  \"phone\": \"24200202\",\r\n  \"address\": \"zona 6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/suppliers/addSupplier",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"suppliers",
+								"addSupplier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSuppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBjMzE4MjlhZGIwY2Q5OWYzMmE4NDIiLCJpYXQiOjE3NDU2Mjk1OTMsImV4cCI6MTc0NTYzMzE5M30.4B_kgpiigLKz28X77bTp4KdZ9mETWN6DNqtM6oIg1v8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/suppliers/getSuppliers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"suppliers",
+								"getSuppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBjMzE4MjlhZGIwY2Q5OWYzMmE4NDIiLCJpYXQiOjE3NDU2Mjk1OTMsImV4cCI6MTc0NTYzMzE5M30.4B_kgpiigLKz28X77bTp4KdZ9mETWN6DNqtM6oIg1v8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/suppliers/getUserById/680c34502c2381467ab0c198",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"suppliers",
+								"getUserById",
+								"680c34502c2381467ab0c198"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSupplier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBjMzE4MjlhZGIwY2Q5OWYzMmE4NDIiLCJpYXQiOjE3NDU2Mjk1OTMsImV4cCI6MTc0NTYzMzE5M30.4B_kgpiigLKz28X77bTp4KdZ9mETWN6DNqtM6oIg1v8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phone\": \"24200000\",\r\n  \"address\": \"zona 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/suppliers/updateSupplier/680c34502c2381467ab0c198",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"suppliers",
+								"updateSupplier",
+								"680c34502c2381467ab0c198"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSupplier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBjMzE4MjlhZGIwY2Q5OWYzMmE4NDIiLCJpYXQiOjE3NDU2Mjk1OTMsImV4cCI6MTc0NTYzMzE5M30.4B_kgpiigLKz28X77bTp4KdZ9mETWN6DNqtM6oIg1v8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/suppliers/deleteSupplier/680c34502c2381467ab0c198",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"suppliers",
+								"deleteSupplier",
+								"680c34502c2381467ab0c198"
 							]
 						}
 					},

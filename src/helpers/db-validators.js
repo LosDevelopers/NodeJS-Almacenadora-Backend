@@ -1,6 +1,6 @@
 import User from "../user/user.model.js";
 import Product from "../product/product.model.js"
-//import Supplier from "../supplier/supplier.model.js"
+import Supplier from "../supplier/supplier.model.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -48,9 +48,16 @@ export const productExists = async (pid = ' ') => {
     }
 }
 
-/*export const supplierExists = async (sid = ' ') => {
+export const supplierExists = async (sid = ' ') => {
     const existe = await Supplier.findById(sid)
     if(!existe){
         throw new Error("No existe el proveedor con el ID proporcionado")
     }
-}*/
+}
+
+export const emailExistsSupplier = async (email = "") => {
+    const existe = await Supplier.findOne({email})
+    if(existe){
+        throw new Error(`El email ${email} ya esta registrado`)
+    }
+}
