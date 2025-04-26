@@ -3,15 +3,17 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import morgan from "morgan";   
+import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
 import { swaggerDocs, swaggerUi } from "./swagger.js";
-import  apiLimiter from "../src/middlewares/rate-limit-validator.js";
+import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import authRouter from "../src/auth/auth.routes.js";
 import userRouter from "../src/user/user.routes.js";
 import productRouter from "../src/product/product.routes.js";
 import movementRouter from "../src/movements/movements.routes.js";
-import {createAdmin} from "./default-data.js"
+import supplierRouter from "../src/supplier/supplier.routes.js";
+import { createAdmin } from "./default-data.js"
+
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -28,6 +30,7 @@ const routes = (app) => {
     app.use("/Almacenadora/v1/clients", userRouter);
     app.use("/Almacenadora/v1/products", productRouter);
     app.use("/Almacenadora/v1/movements", movementRouter);
+    app.use("/Almacenadora/v1/suppliers", supplierRouter);
 }
 
 const conectarDB = async () => {
@@ -46,7 +49,7 @@ export const initServer = () => {
         conectarDB();
         routes(app);
         createAdmin();
-        const port = process.env.PORT; 
+        const port = process.env.PORT;
         app.listen(port, () => {
             console.log(`Server running on port ${port}`);
         });
