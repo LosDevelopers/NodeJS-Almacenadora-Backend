@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "6806d7ecda5da4c8bdae84af"
+  },
+  "name": " ",
+  "email": "admin@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$yrV5LAQjoa7KAtjt/J3Blg$EUA13rH0lKCWz/fFEVfS7d4Au35C+l5IJUrzJqXolJI",
+  "role": "ADMIN_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-04-21T23:42:36.949Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68072303c7ad5bc7c2525794"
+  },
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$KeZ6l1zcGJFE9XOmO6xqNg$R+ENf6STwtHJP+zAZMRVu3MWIK+sBNaLqrpBAWX79O0",
+  "role": "CLIENT_ROLE",
+  "status": false,
+  "registerdate": {
+    "$date": "2025-04-22T05:02:59.688Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680981388ad113b91f7fab9b"
+  },
+  "name": "John Doe",
+  "email": "johndoea@example.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$ovdB2OQKU9ztzAc+BcIUeQ$M85o7ab7JMFHA4KnOKCitGq+bgwa/hqNBGVcLagvF8o",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-04-24T00:09:28.017Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680986e8239e4649a1d40083"
+  },
+  "name": "Scrum ",
+  "email": "scrum@example.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$0UUk6mda1t7EMRxqRl0ePA$fZOjwzc9IN13vA0z3/IRkpj9TdKH6rfzgEgWU3oq9C8",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-04-24T00:33:44.283Z"
+  },
+  "__v": 0
+}]
