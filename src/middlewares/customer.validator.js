@@ -1,23 +1,27 @@
-import {body, param} from 'express-validator'
-import {validateField} from './validate-fields.js'
-import {customerExists} from "../helpers/db-validators.js"
-import {handleErrors} from "./handle-errors.js"
+import { body, param } from "express-validator";
+import { validateField } from "./validate-field.js";
+import { customerExists } from "../helpers/db-validators.js";
+import { handleErrors } from "./handle-errors.js";
+import { validateJWT } from "./validate-jwt.js";
 
 export const addCustomersValidator = [
-    body("name").not().isEmpty().withMessage("NOMBRE ES REQUERIDO"),
-    body("enterprise").not().isEmpty().withMessage("EMPRESA ES REQUERIDO"),
+    validateJWT, 
+    body("name").notEmpty().withMessage("Name is required"),
+    body("enterprise").notEmpty().withMessage("Enterprise is required").isMongoId().withMessage("Invalid enterprise ID"),
     validateField
 ];
 
 export const editCustomersValidator = [
-    body("name").optional().not().isEmpty().withMessage("NOMBRE ES REQUERIDO"),
-    body("enterprise").optional().not().isEmpty().withMessage("EMPRESA ES REQUERIDO"),
+    validateJWT, 
+    body("name").optional().notEmpty().withMessage("Name is required"),
+    body("enterprise").optional().isMongoId().withMessage("Invalid enterprise ID"),
     validateField
 ];
 
 export const deleteCustomerValidator = [
-    param("cid").isMongoId().withMessage("NO ES UN ID VALIDO"),
+    validateJWT, 
+    param("cid").isMongoId().withMessage("Invalid customer ID"),
     param("cid").custom(customerExists),
     validateField,
     handleErrors
-]
+];
