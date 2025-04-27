@@ -2,9 +2,11 @@ import Product from '../product/product.model.js';
 import Movement from '../movements/movements.model.js';
 
 
+
 export const registerMovement = async (req, res) => {
     try {
-        const { product, type, quantity, note } = req.body;
+        let movement
+        const { product, type, quantity, note, employee, entryDate, departureDate, destination} = req.body;
 
 
         if (!['entry', 'exit'].includes(type)) {
@@ -32,13 +34,33 @@ export const registerMovement = async (req, res) => {
 
         await productData.save();
 
+        const formatDate = (date) => {
+            const d = new Date(date);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
 
-        const movement = await Movement.create({
-            product,
-            type,
-            quantity,
-            note,
-        });
+        if (type === 'entry') {
+            movement = await Movement.create({
+                product,
+                type,
+                quantity,
+                entryDate: entryDate ||  formatDate(Date.now()),
+                note,
+                employee
+            });
+        } else {
+            movement = await Movement.create({
+                product,
+                type,
+                quantity,
+                departureDate: departureDate ||  formatDate(Date.now()),
+                note,
+                destination
+            });
+        }
 
         return res.status(201).json({
             message: `Product ${type === 'entry' ? 'entry' : 'exit'} registered successfully`,
