@@ -14,6 +14,7 @@ import movementRouter from "../src/movements/movements.routes.js";
 import supplierRouter from "../src/supplier/supplier.routes.js";
 import { createAdmin } from "./default-data.js"
 import customersRoutes from "../src/customer/customer.routes.js"
+import reportsRoutes from "../src/reports/reports.routes.js";
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -31,7 +32,8 @@ const routes = (app) => {
     app.use("/Almacenadora/v1/products", productRouter);
     app.use("/Almacenadora/v1/movements", movementRouter);
     app.use("/Almacenadora/v1/suppliers", supplierRouter);
-    app.use("/Almacenadora/v1/customer", customersRoutes)
+    app.use("/Almacenadora/v1/customer", customersRoutes);
+    app.use("/Almacenadora/v1/reports", reportsRoutes);
 }
 
 const conectarDB = async () => {
