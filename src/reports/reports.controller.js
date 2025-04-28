@@ -198,3 +198,142 @@ export const generateMovements = async (req,res) => {
         });
     }
 }
+
+export const generateStats = async (req,res) => {
+    try{
+        const { directory } = req.body;
+    
+        const productCount = {};
+
+        const entryMovements = await Movements.find({
+            type: "entry"
+        }).populate("product", "name").populate("employee", "name");
+
+        const exitMovements = await Movements.find({
+            type: "exit"
+        }).populate("product", "name");
+
+        entryMovements.forEach(movement => {
+            const name = movement.product.name;
+            productCount[name] = (productCount[name] || 0) + movement.quantity;
+        });
+        
+        exitMovements.forEach(movement => {
+            const name = movement.product.name;
+            productCount[name] = (productCount[name] || 0) + movement.quantity;
+        });
+        
+        const sortedProducts = Object.entries(productCount)
+            .sort((a, b) => b[1] - a[1]);
+        
+        const workbook = new Exceljs.Workbook()
+        
+        const worksheetTopProducts = workbook.addWorksheet("Top Productos");
+
+        worksheetTopProducts.columns = [
+            { header: "Producto", key: "product", width: 30 },
+            { header: "Cantidad Movida", key: "quantity", width: 20 },
+        ];
+            
+        sortedProducts.forEach(([product, quantity]) => {
+            worksheetTopProducts.addRow({ product, quantity });
+        });
+            
+        worksheetTopProducts.getRow(1).font = { bold: true };
+        worksheetTopProducts.autoFilter = {
+            from: 'A1',
+            to: 'B1',
+        };
+
+        /////////////////////////////
+
+        const employeeCount = {};
+
+        entryMovements.forEach(movement => {
+            if (movement.employee) {
+                const employeeName = movement.employee.name;
+                employeeCount[employeeName] = (employeeCount[employeeName] || 0) + 1;
+            }
+        });
+
+        const sortedEmployees = Object.entries(employeeCount).sort((a, b) => b[1] - a[1]);
+
+        const worksheetTopEmployees = workbook.addWorksheet("Top Empleados");
+        worksheetTopEmployees.columns = [
+            { header: "Empleado", key: "employee", width: 30 },
+            { header: "Encargos", key: "assignments", width: 20 },
+        ];
+        sortedEmployees.forEach(([employee, assignments]) => {
+            worksheetTopEmployees.addRow({ employee, assignments });
+        });
+        worksheetTopEmployees.getRow(1).font = { bold: true };
+        worksheetTopEmployees.autoFilter = { from: 'A1', to: 'B1' };
+
+        
+        //////////////////////////////
+        
+        const activityByDate = {};
+
+        entryMovements.forEach(movement => {
+            if (movement.entryDate) {
+                const dateKey = new Date(movement.entryDate).toISOString().split('T')[0];
+                activityByDate[dateKey] = (activityByDate[dateKey] || 0) + 1;
+            }
+        });
+        
+        exitMovements.forEach(movement => {
+            if (movement.departureDate) {
+                const dateKey = new Date(movement.departureDate).toISOString().split('T')[0];
+                activityByDate[dateKey] = (activityByDate[dateKey] || 0) + 1;
+            }
+        });
+
+        const sortedActivity = Object.entries(activityByDate)
+        .sort((a, b) => b[1] - a[1]);
+
+        const worksheetMovements = workbook.addWorksheet("Movimientos por fecha");
+        
+        worksheetMovements.columns = [
+            { header: "Fecha", key: "date", width: 20 },
+            { header: "Movimientos", key: "movements", width: 20 },
+        ];
+
+        sortedActivity.forEach(([date, count]) => {
+            worksheetMovements.addRow({ date, movements: count });
+        });
+
+        worksheetMovements.getRow(1).font = { bold: true };
+        worksheetMovements.autoFilter = {
+            from: 'A1',
+            to: 'B1',
+        };
+
+        ///////////////////////////////////////////////
+        
+        const directoryPath = directory 
+        if (!fs.existsSync(directoryPath)) {
+            fs.mkdirSync(directoryPath);
+        }
+
+        const dateNow = new Date();
+        
+        const date = dateNow.toISOString()
+            .replace(/T/, '-')
+            .replace(/\..+/, '')
+            .replace(/:/g, '-');
+        const filePath = path.join(directoryPath, `Statistics_${date}.xlsx`);
+
+        await workbook.xlsx.writeFile(filePath);
+    
+        return res.status(200).json({
+            success: true,
+            message: "Report successfully generated",
+        })
+    }catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error generating Report",
+            error: err.message
+        });
+    }
+}

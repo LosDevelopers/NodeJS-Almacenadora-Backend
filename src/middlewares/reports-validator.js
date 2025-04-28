@@ -4,7 +4,7 @@ import { handleErrors } from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
 import { hasRoles } from "./validate-roles.js";
 
-export const validatorGenerateInventory = [
+export const validatorGenerateReport = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
     body("directory").notEmpty().withMessage("Directory is required"),
