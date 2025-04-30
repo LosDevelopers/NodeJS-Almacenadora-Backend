@@ -62,11 +62,7 @@ export const emailExistsSupplier = async (email = "") => {
     if(existe){
         throw new Error(`El email ${email} ya esta registrado`)
     }
-<<<<<<< Updated upstream
-} 
-=======
 }
->>>>>>> Stashed changes
   
 export const customerExists = async (cid = "") => {
     const exist = await Customer.findById(cid)
