@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "895337a8-c619-4f64-8c68-fa2b8fee8a05",
+		"_postman_id": "c60f069f-b3f4-4e3c-8cef-c965060fddaf",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41959042"
+		"_exporter_id": "38544411"
 	},
 	"item": [
 		{
@@ -831,11 +831,21 @@
 				{
 					"name": "Add Customer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Pablo Gutierrez\",\r\n    \"enterprise\":\"Pollolindo\",\r\n    \"contactInformation\":\"colonia el arbol zona 2 Guatemala\"\r\n}   ",
+							"raw": "{\r\n    \"name\":\"Pablo Gutierrez\",\r\n    \"users\":\"6806d7ecda5da4c8bdae84af\",\r\n    \"contactInformation\":\"colonia el arbol zona 2 Guatemala\"\r\n}   ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -884,11 +894,21 @@
 				{
 					"name": "EditCustomers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Juan Gutierrez\",\r\n    \"enterprise\":\"Las jARAS\",\r\n    \"contactInformation\":\"colonia el prado zona 2 Guatemala\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Juan Gutierrez\",\r\n    \"enterprise\":\"6806d7ecda5da4c8bdae84af\",\r\n    \"contactInformation\":\"colonia el prado zona 2 Guatemala\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -896,7 +916,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/customer/customers/6809c05e59c1fe6d6e3cab92",
+							"raw": "http://localhost:3001/Almacenadora/v1/customer/customers/680d2739ccd03e6913dbfa3f",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -907,7 +927,7 @@
 								"v1",
 								"customer",
 								"customers",
-								"6809c05e59c1fe6d6e3cab92"
+								"680d2739ccd03e6913dbfa3f"
 							]
 						}
 					},
@@ -916,10 +936,20 @@
 				{
 					"name": "DeleteCustomers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/customer/deleteCustomer/6809c05e59c1fe6d6e3cab92",
+							"raw": "http://localhost:3001/Almacenadora/v1/customer/deleteCustomer/6811b5696690d463cea4b40a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -930,7 +960,7 @@
 								"v1",
 								"customer",
 								"deleteCustomer",
-								"6809c05e59c1fe6d6e3cab92"
+								"6811b5696690d463cea4b40a"
 							]
 						}
 					},
@@ -1068,6 +1098,41 @@
 								"v1",
 								"reports",
 								"movements"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "lowStock",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Expiring",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/alerts/expiring",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"alerts",
+								"expiring"
 							]
 						}
 					},
