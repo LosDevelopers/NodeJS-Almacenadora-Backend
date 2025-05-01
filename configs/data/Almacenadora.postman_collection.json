@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c60f069f-b3f4-4e3c-8cef-c965060fddaf",
+		"_postman_id": "f775247a-388c-43ce-9540-9a302c7695dd",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38544411"
+		"_exporter_id": "41959042"
 	},
 	"item": [
 		{
@@ -982,7 +982,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU3NjQxNzEsImV4cCI6MTc0NTc2Nzc3MX0.R_TtGvR8l05zOgHaIpcoTSNIIbwSEI3kQ3zgiix6CQw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTM5ODAsImV4cCI6MTc0NjExNzU4MH0.bwfnLr2p3a4_qB3FpAN-yLOWBPLXfE0Uw2RcmERKniI",
 									"type": "string"
 								}
 							]
@@ -991,7 +991,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1026,7 +1026,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MTAwODgsImV4cCI6MTc0NTgxMzY4OH0.w1i7AoPSW2T7f9N82ArNzqiEI8bxd6W5Zw9fh-4tCtw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTU3NjksImV4cCI6MTc0NjExOTM2OX0.t8Tnr7jY662le3O6F-9FMFipTXCFSBsxqm1rV5Ecn-4",
 									"type": "string"
 								}
 							]
@@ -1035,7 +1035,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1070,7 +1070,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MDU2NTEsImV4cCI6MTc0NTgwOTI1MX0.sTzgYaWxApWWNpKLAfnoY6U6o5M6XjJlvw8jH30X9i4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTU3NjksImV4cCI6MTc0NjExOTM2OX0.t8Tnr7jY662le3O6F-9FMFipTXCFSBsxqm1rV5Ecn-4",
 									"type": "string"
 								}
 							]
@@ -1079,7 +1079,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\",\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-04-27\"\r\n}",
+							"raw": "{\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-05-27\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1112,7 +1112,10 @@
 					"name": "lowStock",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
