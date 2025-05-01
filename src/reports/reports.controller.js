@@ -6,7 +6,6 @@ import fs from 'fs';
 
 export const generateInventory = async (req,res) => {
     try{
-        const {directory} = req.body;
         const products = await Products.find({status: true});
         if (!products || products.length === 0) {
             return res.status(404).json({
@@ -47,27 +46,13 @@ export const generateInventory = async (req,res) => {
         worksheet.addRow({name: "Total de productos", quantity: "", category: products.length});
         worksheet.addRow({name: "Valor de inventario", quantity: "", category: inventoryValue }) ;
 
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.setHeader('Content-Disposition', 'attachment; filename=Inventory.xlsx');
 
-     
-        const directoryPath = directory 
-        if (!fs.existsSync(directoryPath)) {
-            fs.mkdirSync(directoryPath);
-        }
 
-        const dateNow = new Date();
-        
-        const date = dateNow.toISOString()
-            .replace(/T/, '-')
-            .replace(/\..+/, '')
-            .replace(/:/g, '-');
-        const filePath = path.join(directoryPath, `Inventory_${date}.xlsx`);
+        await workbook.xlsx.write(res);
+        res.end();
 
-        await workbook.xlsx.writeFile(filePath);
-     
-        return res.status(200).json({
-            success: true,
-            message: "Inventory successfully generated",
-        })
     } catch (err) {
         return res.status(500).json({
             success: false,

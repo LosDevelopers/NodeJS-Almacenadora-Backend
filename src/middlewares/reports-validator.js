@@ -7,7 +7,6 @@ import { hasRoles } from "./validate-roles.js";
 export const validatorGenerateReport = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
-    body("directory").notEmpty().withMessage("Directory is required"),
     validateField,
     handleErrors
 ]
