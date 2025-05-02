@@ -2,7 +2,6 @@
 import User from "../user/user.model.js";
 import Product from "../product/product.model.js"
 import Supplier from "../supplier/supplier.model.js"
-import Customer from "../customer/customer.model.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -64,9 +63,3 @@ export const emailExistsSupplier = async (email = "") => {
     }
 }
   
-export const customerExists = async (cid = "") => {
-    const exist = await Customer.findById(cid)
-    if(!exist){
-        throw new Error("The customer with the entered id does not exist")
-    }
-} 

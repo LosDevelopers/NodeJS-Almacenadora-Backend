@@ -13,7 +13,6 @@ import productRouter from "../src/product/product.routes.js";
 import movementRouter from "../src/movements/movements.routes.js";
 import supplierRouter from "../src/supplier/supplier.routes.js";
 import { createAdmin } from "./default-data.js";
-import customersRoutes from "../src/customer/customer.routes.js";
 import alertsRouter from "../src/alerts/alerts.routes.js";
 import reportsRouter from "../src/reports/reports.routes.js";
 
@@ -33,7 +32,6 @@ const routes = (app) => {
     app.use("/Almacenadora/v1/products", productRouter);
     app.use("/Almacenadora/v1/movements", movementRouter);
     app.use("/Almacenadora/v1/suppliers", supplierRouter);
-    app.use("/Almacenadora/v1/customer", customersRoutes);
     app.use("/Almacenadora/v1/alerts", alertsRouter);
     app.use("/Almacenadora/v1/reports", reportsRouter);
 };
