@@ -5,9 +5,9 @@ const customerSchema = new Schema({
         type: String,
         required: true
     },
-    enterprise: {
+    users: { 
         type: Schema.Types.ObjectId, 
-        ref: "Enterprise",
+        ref: "User", 
         required: true
     },
     contactInformation: {

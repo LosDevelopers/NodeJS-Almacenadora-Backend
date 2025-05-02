@@ -19,16 +19,17 @@ export const registerMovement = async (req, res) => {
             return res.status(404).json({ message: 'Product not found' });
         }
 
+        const parsedQuantity = Number(quantity);
 
         if (type === 'entry') {
-            productData.amount += quantity;
+            productData.amount += parsedQuantity;
         } 
 
         else {
-            if (productData.amount < quantity) {
+            if (productData.amount < parsedQuantity) {
                 return res.status(400).json({ message: 'Not enough product in stock' });
             }
-            productData.amount -= quantity;
+            productData.amount -= parsedQuantity;
         }
 
 
@@ -37,7 +38,7 @@ export const registerMovement = async (req, res) => {
         const formatDate = (date) => {
             const d = new Date(date);
             const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+            const month = String(d.getMonth() + 1).padStart(2, '0'); 
             const day = String(d.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         };

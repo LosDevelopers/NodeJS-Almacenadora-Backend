@@ -12,9 +12,10 @@ import userRouter from "../src/user/user.routes.js";
 import productRouter from "../src/product/product.routes.js";
 import movementRouter from "../src/movements/movements.routes.js";
 import supplierRouter from "../src/supplier/supplier.routes.js";
-import { createAdmin } from "./default-data.js"
-import customersRoutes from "../src/customer/customer.routes.js"
-import reportsRoutes from "../src/reports/reports.routes.js";
+import { createAdmin } from "./default-data.js";
+import customersRoutes from "../src/customer/customer.routes.js";
+import alertsRouter from "../src/alerts/alerts.routes.js";
+import reportsRouter from "../src/reports/reports.routes.js";
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -23,7 +24,7 @@ const middlewares = (app) => {
     app.use(helmet());
     app.use(morgan("dev"));
     app.use(apiLimiter);
-}
+};
 
 const routes = (app) => {
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
@@ -33,8 +34,9 @@ const routes = (app) => {
     app.use("/Almacenadora/v1/movements", movementRouter);
     app.use("/Almacenadora/v1/suppliers", supplierRouter);
     app.use("/Almacenadora/v1/customer", customersRoutes);
-    app.use("/Almacenadora/v1/reports", reportsRoutes);
-}
+    app.use("/Almacenadora/v1/alerts", alertsRouter);
+    app.use("/Almacenadora/v1/reports", reportsRouter);
+};
 
 const conectarDB = async () => {
     try {
@@ -51,6 +53,17 @@ export const initServer = () => {
         middlewares(app);
         conectarDB();
         routes(app);
+
+        // ⬇️ Middleware Global de Errores (AGREGA ESTO)
+        app.use((err, req, res, next) => {
+            console.error('Error no manejado:', err);
+
+            res.status(err.status || 500).json({
+                message: err.message || 'Error interno del servidor',
+                stack: process.env.NODE_ENV === 'production' ? null : err.stack
+            });
+        });
+
         createAdmin();
         const port = process.env.PORT;
         app.listen(port, () => {

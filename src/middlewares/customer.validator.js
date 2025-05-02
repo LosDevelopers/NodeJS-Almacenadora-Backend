@@ -7,7 +7,7 @@ import { validateJWT } from "./validate-jwt.js";
 export const addCustomersValidator = [
     validateJWT, 
     body("name").notEmpty().withMessage("Name is required"),
-    body("enterprise").notEmpty().withMessage("Enterprise is required").isMongoId().withMessage("Invalid enterprise ID"),
+    body("users").notEmpty().withMessage("user is required").isMongoId().withMessage("Invalid enterprise ID"),
     validateField
 ];
 

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "895337a8-c619-4f64-8c68-fa2b8fee8a05",
+		"_postman_id": "f775247a-388c-43ce-9540-9a302c7695dd",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "41959042"
@@ -831,11 +831,21 @@
 				{
 					"name": "Add Customer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Pablo Gutierrez\",\r\n    \"enterprise\":\"Pollolindo\",\r\n    \"contactInformation\":\"colonia el arbol zona 2 Guatemala\"\r\n}   ",
+							"raw": "{\r\n    \"name\":\"Pablo Gutierrez\",\r\n    \"users\":\"6806d7ecda5da4c8bdae84af\",\r\n    \"contactInformation\":\"colonia el arbol zona 2 Guatemala\"\r\n}   ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -884,11 +894,21 @@
 				{
 					"name": "EditCustomers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Juan Gutierrez\",\r\n    \"enterprise\":\"Las jARAS\",\r\n    \"contactInformation\":\"colonia el prado zona 2 Guatemala\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Juan Gutierrez\",\r\n    \"enterprise\":\"6806d7ecda5da4c8bdae84af\",\r\n    \"contactInformation\":\"colonia el prado zona 2 Guatemala\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -896,7 +916,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/customer/customers/6809c05e59c1fe6d6e3cab92",
+							"raw": "http://localhost:3001/Almacenadora/v1/customer/customers/680d2739ccd03e6913dbfa3f",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -907,7 +927,7 @@
 								"v1",
 								"customer",
 								"customers",
-								"6809c05e59c1fe6d6e3cab92"
+								"680d2739ccd03e6913dbfa3f"
 							]
 						}
 					},
@@ -916,10 +936,20 @@
 				{
 					"name": "DeleteCustomers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/customer/deleteCustomer/6809c05e59c1fe6d6e3cab92",
+							"raw": "http://localhost:3001/Almacenadora/v1/customer/deleteCustomer/6811b5696690d463cea4b40a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -930,7 +960,7 @@
 								"v1",
 								"customer",
 								"deleteCustomer",
-								"6809c05e59c1fe6d6e3cab92"
+								"6811b5696690d463cea4b40a"
 							]
 						}
 					},
@@ -952,7 +982,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU3NjQxNzEsImV4cCI6MTc0NTc2Nzc3MX0.R_TtGvR8l05zOgHaIpcoTSNIIbwSEI3kQ3zgiix6CQw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTM5ODAsImV4cCI6MTc0NjExNzU4MH0.bwfnLr2p3a4_qB3FpAN-yLOWBPLXfE0Uw2RcmERKniI",
 									"type": "string"
 								}
 							]
@@ -961,7 +991,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -996,7 +1026,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MTAwODgsImV4cCI6MTc0NTgxMzY4OH0.w1i7AoPSW2T7f9N82ArNzqiEI8bxd6W5Zw9fh-4tCtw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTU3NjksImV4cCI6MTc0NjExOTM2OX0.t8Tnr7jY662le3O6F-9FMFipTXCFSBsxqm1rV5Ecn-4",
 									"type": "string"
 								}
 							]
@@ -1005,7 +1035,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1040,7 +1070,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MDU2NTEsImV4cCI6MTc0NTgwOTI1MX0.sTzgYaWxApWWNpKLAfnoY6U6o5M6XjJlvw8jH30X9i4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTU3NjksImV4cCI6MTc0NjExOTM2OX0.t8Tnr7jY662le3O6F-9FMFipTXCFSBsxqm1rV5Ecn-4",
 									"type": "string"
 								}
 							]
@@ -1049,7 +1079,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\",\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-04-27\"\r\n}",
+							"raw": "{\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-05-27\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1068,6 +1098,44 @@
 								"v1",
 								"reports",
 								"movements"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "lowStock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Expiring",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/alerts/expiring",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"alerts",
+								"expiring"
 							]
 						}
 					},

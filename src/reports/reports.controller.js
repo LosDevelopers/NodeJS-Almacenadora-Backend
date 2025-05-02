@@ -6,7 +6,6 @@ import fs from 'fs';
 
 export const generateInventory = async (req,res) => {
     try{
-        const {directory} = req.body;
         const products = await Products.find({status: true});
         if (!products || products.length === 0) {
             return res.status(404).json({
@@ -47,27 +46,21 @@ export const generateInventory = async (req,res) => {
         worksheet.addRow({name: "Total de productos", quantity: "", category: products.length});
         worksheet.addRow({name: "Valor de inventario", quantity: "", category: inventoryValue }) ;
 
-
-     
-        const directoryPath = directory 
-        if (!fs.existsSync(directoryPath)) {
-            fs.mkdirSync(directoryPath);
-        }
-
-        const dateNow = new Date();
-        
-        const date = dateNow.toISOString()
-            .replace(/T/, '-')
-            .replace(/\..+/, '')
+        const now = new Date();
+        const formattedDate = now.toISOString()
+            .replace(/T/, '_') 
+            .replace(/\..+/, '') 
             .replace(/:/g, '-');
-        const filePath = path.join(directoryPath, `Inventory_${date}.xlsx`);
 
-        await workbook.xlsx.writeFile(filePath);
-     
-        return res.status(200).json({
-            success: true,
-            message: "Inventory successfully generated",
-        })
+
+        const fileName = `Inventory_${formattedDate}.xlsx`;
+
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.setHeader('Content-Disposition', `attachment; filename=${fileName}`);
+
+        await workbook.xlsx.write(res);
+        res.end();
+
     } catch (err) {
         return res.status(500).json({
             success: false,
@@ -80,7 +73,7 @@ export const generateInventory = async (req,res) => {
 
 export const generateMovements = async (req,res) => {
     try{
-        const { directory, startDate, endDate } = req.body;
+        const {startDate, endDate } = req.body;
 
         if (!startDate || !endDate) {
             return res.status(400).json({
@@ -171,25 +164,13 @@ export const generateMovements = async (req,res) => {
             `Movimientos de ${start.toLocaleDateString()} a ${end.toLocaleDateString()}: ${totalMovements}`
         ]);
 
-        const directoryPath = directory 
-        if (!fs.existsSync(directoryPath)) {
-            fs.mkdirSync(directoryPath);
-        }
+        const fileName = `Movements-${startDate}-${endDate}.xlsx`;
 
-        const dateNow = new Date();
-        
-        const date = dateNow.toISOString()
-            .replace(/T/, '-')
-            .replace(/\..+/, '')
-            .replace(/:/g, '-');
-        const filePath = path.join(directoryPath, `Movements_${date}.xlsx`);
+        res.setHeader("Content-Type","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        res.setHeader("Content-Disposition", `attachment; filename=${fileName}`);
 
-        await workbook.xlsx.writeFile(filePath);
-     
-        return res.status(200).json({
-            success: true,
-            message: "Report successfully generated",
-        })
+        await workbook.xlsx.write(res);
+        res.end();
     } catch (err) {
         return res.status(500).json({
             success: false,
@@ -200,9 +181,7 @@ export const generateMovements = async (req,res) => {
 }
 
 export const generateStats = async (req,res) => {
-    try{
-        const { directory } = req.body;
-    
+    try{    
         const productCount = {};
 
         const entryMovements = await Movements.find({
@@ -310,25 +289,20 @@ export const generateStats = async (req,res) => {
 
         ///////////////////////////////////////////////
         
-        const directoryPath = directory 
-        if (!fs.existsSync(directoryPath)) {
-            fs.mkdirSync(directoryPath);
-        }
-
-        const dateNow = new Date();
-        
-        const date = dateNow.toISOString()
-            .replace(/T/, '-')
-            .replace(/\..+/, '')
+        const now = new Date();
+        const formattedDate = now.toISOString()
+            .replace(/T/, '_') 
+            .replace(/\..+/, '') 
             .replace(/:/g, '-');
-        const filePath = path.join(directoryPath, `Statistics_${date}.xlsx`);
 
-        await workbook.xlsx.writeFile(filePath);
-    
-        return res.status(200).json({
-            success: true,
-            message: "Report successfully generated",
-        })
+
+        const fileName = `Statistics_${formattedDate}.xlsx`;
+
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.setHeader('Content-Disposition', `attachment; filename=${fileName}`);
+
+        await workbook.xlsx.write(res);
+        res.end();
     }catch (err) {
         return res.status(500).json({
             success: false,
