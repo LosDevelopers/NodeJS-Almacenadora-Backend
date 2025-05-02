@@ -44,3 +44,20 @@ export const getMovementsByProductValidator = [
     validateField,
     handleErrors
 ];
+
+export const deleteMovementsByIdMovement = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    validateField,
+    handleErrors,
+    param('pid').isMongoId().withMessage('Invalid product ID')
+];
+
+export const updateMovementById = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    validateField,
+    handleErrors,
+    param('pid').isMongoId().withMessage('Invalid product ID'),
+    
+]

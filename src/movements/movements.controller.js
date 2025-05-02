@@ -133,3 +133,56 @@ export const getMovementsByProduct = async (req, res) => {
         });
     }
 }
+
+export const deleteMovement = async (req, res) => {
+    try {
+        const { mid } = req.params;
+        const movement = await Movement.findByIdAndDelete(mid);
+        if (!movement) {
+            return res.status(404).json({ message: 'Movement not found' });
+        }
+        return res.status(200).json({
+            success: true,
+            message: 'Movement deleted successfully'
+        });
+    } catch (err) {
+        return res.status(500).json({
+            message: 'Error deleting movement',
+            error: err.message
+        });
+    }
+}
+
+export const updateMovement = async (req, res) => {
+    try {
+        const { mid } = req.params;
+        const { product, type, quantity, note, employee, entryDate, departureDate, destination } = req.body;
+
+        const movement = await Movement.findById(mid);
+        if (!movement) {
+            return res.status(404).json({ message: 'Movement not found' });
+        }
+
+        if (product) movement.product = product;
+        if (type) movement.type = type;
+        if (quantity) movement.quantity = quantity;
+        if (note) movement.note = note;
+        if (employee) movement.employee = employee;
+        if (entryDate) movement.entryDate = entryDate;
+        if (departureDate) movement.departureDate = departureDate;
+        if (destination) movement.destination = destination;
+
+        await movement.save();
+
+        return res.status(200).json({
+            success: true,
+            message: 'Movement updated successfully',
+            movement
+        });
+    } catch (err) {
+        return res.status(500).json({
+            message: 'Error updating movement',
+            error: err.message
+        });
+    }
+}

@@ -3,13 +3,16 @@ import {
     registerMovement,
     getMovements,
     getMovementById,
-    getMovementsByProduct
+    getMovementsByProduct,
+    deleteMovement,
+    updateMovement
 } from './movements.controller.js';
 import {
     registerMovementValidator,
     getMovementValidator,
     getMovementsValidator,
-    getMovementsByProductValidator
+    deleteMovementsByIdMovement,
+    updateMovementById
 } from '../middlewares/movements-validators.js';
 
 const router = Router();
@@ -173,6 +176,86 @@ router.get('/movements/:mid', getMovementValidator, getMovementById);
  *       500:
  *         description: Server error
  */
-router.get('/movement/:pid', getMovementsByProductValidator, getMovementsByProduct);
+router.get('/movement/:pid', getMovementsByProduct);
+
+/**
+ * @swagger
+ * /movements/{mid}:
+ *   delete:
+ *     summary: Delete a specific movement by ID
+ *     tags: [Movements]
+ *     parameters:
+ *       - in: path
+ *         name: mid
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Movement ID
+ *     responses:
+ *       200:
+ *         description: Movement deleted successfully
+ *       404:
+ *         description: Movement not found
+ *       500:
+ *         description: Server error
+ */
+router.delete('/movementsDelete/:mid',deleteMovementsByIdMovement, deleteMovement);
+
+/**
+ * @swagger
+ * /movements/{mid}:
+ *   put:
+ *     summary: Update a specific movement by ID
+ *     tags: [Movements]
+ *     parameters:
+ *       - in: path
+ *         name: mid
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Movement ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               product:
+ *                 type: string
+ *                 description: Product ID
+ *               type:
+ *                 type: string
+ *                 enum: [entry, exit]
+ *                 description: Movement type (entry or exit)
+ *               quantity:
+ *                 type: number
+ *                 description: Number of items being added or removed
+ *               note:
+ *                 type: string
+ *                 description: Optional note or reason for the movement
+ *               employee:
+ *                 type: string
+ *                 description: Employee ID
+ *               entryDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Entry date
+ *               departureDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Departure date
+ *               destination:
+ *                 type: string
+ *                 description: Destination for the movement
+ *     responses:
+ *       200:
+ *         description: Movement updated successfully
+ *       404:
+ *         description: Movement not found
+ *       500:
+ *         description: Server error
+ */
+router.put('/movementsUpdate/:mid', updateMovementById, updateMovement);
 
 export default router;
