@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f775247a-388c-43ce-9540-9a302c7695dd",
+		"_postman_id": "9c72d500-c1a8-4e47-94d0-8becf573d8ab",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41959042"
+		"_exporter_id": "38544411"
 	},
 	"item": [
 		{
@@ -621,6 +621,65 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "updateMovement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBmOThjNzUwYTJmNDFiZmQ5MmIxODgiLCJpYXQiOjE3NDYyMDYwMzYsImV4cCI6MTc0NjIwOTYzNn0.1vcCxtU0o64rBkpZ_Kmu8dAsdlkgwk-r75uZisP9SIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movementsUpdate/:mid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"movementsUpdate",
+								":mid"
+							],
+							"variable": [
+								{
+									"key": "mid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMovements",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -831,21 +890,11 @@
 				{
 					"name": "Add Customer",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Pablo Gutierrez\",\r\n    \"users\":\"6806d7ecda5da4c8bdae84af\",\r\n    \"contactInformation\":\"colonia el arbol zona 2 Guatemala\"\r\n}   ",
+							"raw": "{\r\n    \"name\":\"Pablo Gutierrez\",\r\n    \"enterprise\":\"Pollolindo\",\r\n    \"contactInformation\":\"colonia el arbol zona 2 Guatemala\"\r\n}   ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -894,21 +943,11 @@
 				{
 					"name": "EditCustomers",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Juan Gutierrez\",\r\n    \"enterprise\":\"6806d7ecda5da4c8bdae84af\",\r\n    \"contactInformation\":\"colonia el prado zona 2 Guatemala\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Juan Gutierrez\",\r\n    \"enterprise\":\"Las jARAS\",\r\n    \"contactInformation\":\"colonia el prado zona 2 Guatemala\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -916,7 +955,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/customer/customers/680d2739ccd03e6913dbfa3f",
+							"raw": "http://localhost:3001/Almacenadora/v1/customer/customers/6809c05e59c1fe6d6e3cab92",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -927,7 +966,7 @@
 								"v1",
 								"customer",
 								"customers",
-								"680d2739ccd03e6913dbfa3f"
+								"6809c05e59c1fe6d6e3cab92"
 							]
 						}
 					},
@@ -936,20 +975,10 @@
 				{
 					"name": "DeleteCustomers",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDU5ODg2NTcsImV4cCI6MTc0NTk5MjI1N30.q9n8sYJWY_YUniT5JX2itGczGHDPz2KOijh2zrC2Bns",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/customer/deleteCustomer/6811b5696690d463cea4b40a",
+							"raw": "http://localhost:3001/Almacenadora/v1/customer/deleteCustomer/6809c05e59c1fe6d6e3cab92",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -960,7 +989,7 @@
 								"v1",
 								"customer",
 								"deleteCustomer",
-								"6811b5696690d463cea4b40a"
+								"6809c05e59c1fe6d6e3cab92"
 							]
 						}
 					},
@@ -982,7 +1011,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTM5ODAsImV4cCI6MTc0NjExNzU4MH0.bwfnLr2p3a4_qB3FpAN-yLOWBPLXfE0Uw2RcmERKniI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU3NjQxNzEsImV4cCI6MTc0NTc2Nzc3MX0.R_TtGvR8l05zOgHaIpcoTSNIIbwSEI3kQ3zgiix6CQw",
 									"type": "string"
 								}
 							]
@@ -991,7 +1020,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1026,7 +1055,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTU3NjksImV4cCI6MTc0NjExOTM2OX0.t8Tnr7jY662le3O6F-9FMFipTXCFSBsxqm1rV5Ecn-4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MTAwODgsImV4cCI6MTc0NTgxMzY4OH0.w1i7AoPSW2T7f9N82ArNzqiEI8bxd6W5Zw9fh-4tCtw",
 									"type": "string"
 								}
 							]
@@ -1035,7 +1064,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1070,7 +1099,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDYxMTU3NjksImV4cCI6MTc0NjExOTM2OX0.t8Tnr7jY662le3O6F-9FMFipTXCFSBsxqm1rV5Ecn-4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MDU2NTEsImV4cCI6MTc0NTgwOTI1MX0.sTzgYaWxApWWNpKLAfnoY6U6o5M6XjJlvw8jH30X9i4",
 									"type": "string"
 								}
 							]
@@ -1079,7 +1108,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-05-27\"\r\n}",
+							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\",\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-04-27\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1098,44 +1127,6 @@
 								"v1",
 								"reports",
 								"movements"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Alerts",
-			"item": [
-				{
-					"name": "lowStock",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Expiring",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3001/Almacenadora/v1/alerts/expiring",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"Almacenadora",
-								"v1",
-								"alerts",
-								"expiring"
 							]
 						}
 					},
