@@ -630,7 +630,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBmOThjNzUwYTJmNDFiZmQ5MmIxODgiLCJpYXQiOjE3NDYyMDYwMzYsImV4cCI6MTc0NjIwOTYzNn0.1vcCxtU0o64rBkpZ_Kmu8dAsdlkgwk-r75uZisP9SIo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDYyMzI2NzIsImV4cCI6MTc0NjIzNjI3Mn0.ZoFDTDzzU2U25f3Ifx4SDfmrI__0c4jPFITMi92l1V4",
 									"type": "string"
 								}
 							]
@@ -639,7 +639,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"quantity\": 15,\r\n    \"note\": \"Actualización de movimiento\",\r\n    \"destination\": \"Empresa ABC\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -647,7 +647,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movementsUpdate/:mid",
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movementsUpdate/68156bd0799c3c6de672e912",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -661,13 +661,7 @@
 								"v1",
 								"movements",
 								"movementsUpdate",
-								":mid"
-							],
-							"variable": [
-								{
-									"key": "mid",
-									"value": ""
-								}
+								"68156bd0799c3c6de672e912"
 							]
 						}
 					},
@@ -676,10 +670,35 @@
 				{
 					"name": "DeleteMovements",
 					"request": {
-						"method": "GET",
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDYyMzI2NzIsImV4cCI6MTc0NjIzNjI3Mn0.ZoFDTDzzU2U25f3Ifx4SDfmrI__0c4jPFITMi92l1V4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movementsDelete/68156bd0799c3c6de672e912",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"movementsDelete",
+								"68156bd0799c3c6de672e912"
+							]
 						}
 					},
 					"response": []
