@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c72d500-c1a8-4e47-94d0-8becf573d8ab",
+		"_postman_id": "6e670871-78f0-489f-b415-942219c9c7f2",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38544411"
@@ -677,7 +677,10 @@
 					"name": "DeleteMovements",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
