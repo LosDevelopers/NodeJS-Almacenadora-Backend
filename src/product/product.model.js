@@ -23,8 +23,7 @@ const productSchema = Schema({
     },
     amount: {
         type: Number,
-        required: [true, 'Amount is required'],
-        min: [0, 'Amount must be greater than or equal to 0']
+        required: true
     },
     supplier: {
         type: Schema.Types.ObjectId,

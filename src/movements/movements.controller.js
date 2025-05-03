@@ -1,44 +1,48 @@
 import Product from '../product/product.model.js';
 import Movement from '../movements/movements.model.js';
 
-
-
 export const registerMovement = async (req, res) => {
     try {
-        let movement
-        const { product, type, quantity, note, employee, entryDate, departureDate, destination} = req.body;
-
+        let movement;
+        const { product, type, quantity, note, employee, entryDate, departureDate, destination } = req.body;
 
         if (!['entry', 'exit'].includes(type)) {
             return res.status(400).json({ message: 'Invalid movement type. Use "entry" or "exit".' });
         }
 
+        const parsedQuantity = Number(quantity);
+        if (isNaN(parsedQuantity) || parsedQuantity <= 0) {
+            return res.status(400).json({ message: 'Quantity must be a positive number.' });
+        }
 
-        const productData = await Product.findById(product);
+        const productData = await Product.findById(product).populate('supplier', 'name email phone address');
         if (!productData) {
             return res.status(404).json({ message: 'Product not found' });
         }
 
-        const parsedQuantity = Number(quantity);
+        if (!productData.supplier) {
+            return res.status(400).json({ message: 'Product does not have a valid supplier.' });
+        }
+
+        if (typeof productData.amount !== 'number' || isNaN(productData.amount)) {
+            return res.status(400).json({ message: 'Product amount is not valid.' });
+        }
 
         if (type === 'entry') {
             productData.amount += parsedQuantity;
-        } 
-
-        else {
+        } else {
             if (productData.amount < parsedQuantity) {
                 return res.status(400).json({ message: 'Not enough product in stock' });
             }
             productData.amount -= parsedQuantity;
         }
 
-
         await productData.save();
 
         const formatDate = (date) => {
             const d = new Date(date);
             const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0'); 
+            const month = String(d.getMonth() + 1).padStart(2, '0');
             const day = String(d.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         };
@@ -47,8 +51,8 @@ export const registerMovement = async (req, res) => {
             movement = await Movement.create({
                 product,
                 type,
-                quantity,
-                entryDate: entryDate ||  formatDate(Date.now()),
+                quantity: parsedQuantity,
+                entryDate: entryDate || formatDate(Date.now()),
                 note,
                 employee
             });
@@ -56,8 +60,8 @@ export const registerMovement = async (req, res) => {
             movement = await Movement.create({
                 product,
                 type,
-                quantity,
-                departureDate: departureDate ||  formatDate(Date.now()),
+                quantity: parsedQuantity,
+                departureDate: departureDate || formatDate(Date.now()),
                 note,
                 destination
             });
@@ -75,7 +79,6 @@ export const registerMovement = async (req, res) => {
         });
     }
 };
-
 
 export const getMovements = async (req, res) => {
     try {
@@ -95,7 +98,6 @@ export const getMovements = async (req, res) => {
     }
 };
 
-
 export const getMovementById = async (req, res) => {   
     try {
         const { mid } = req.params;
@@ -114,7 +116,7 @@ export const getMovementById = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const getMovementsByProduct = async (req, res) => { 
     try {
@@ -133,7 +135,7 @@ export const getMovementsByProduct = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const deleteMovement = async (req, res) => {
     try {
@@ -152,7 +154,7 @@ export const deleteMovement = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const updateMovement = async (req, res) => {
     try {
@@ -186,4 +188,4 @@ export const updateMovement = async (req, res) => {
             error: err.message
         });
     }
-}
+};

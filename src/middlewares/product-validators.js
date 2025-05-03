@@ -13,7 +13,7 @@ export const createProductValidator = [
     body('description').notEmpty().withMessage('Description is required').isLength({ max: 255 }).withMessage('Description must be less than 255 characters'),
     body('category').notEmpty().withMessage('Category is required').isLength({ max: 50 }).withMessage('Category name must be less than 50 characters'),
     body('amount').notEmpty().withMessage('Amount is required').isNumeric().withMessage('Amount must be a number'),
-    // body('supplier').notEmpty().withMessage('Supplier is required').isMongoId().withMessage('Invalid supplier ID'), // Comentado
+    body('supplier').notEmpty().withMessage('Supplier is required').isMongoId().withMessage('Invalid supplier ID'), 
     body('entryDate').notEmpty().withMessage('Entry date is required').isDate().withMessage('Entry date must be a date'),
     body('expirationDate').notEmpty().withMessage('Expiration date is required').isDate().withMessage('Expiration date must be a date'),
     validateField,
