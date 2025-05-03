@@ -74,6 +74,7 @@ export const generateInventory = async (req,res) => {
 export const generateMovements = async (req,res) => {
     try{
         const {startDate, endDate } = req.body;
+        console.log(startDate, endDate)
 
         if (!startDate || !endDate) {
             return res.status(400).json({
@@ -157,11 +158,11 @@ export const generateMovements = async (req,res) => {
         const totalMovements = entryMovements.length + exitMovements.length;
 
         worksheetExit.addRow([
-            `Movimientos de ${start.toLocaleDateString()} a ${end.toLocaleDateString()}: ${totalMovements}`
+            `Movimientos de ${startDate} a ${endDate}: ${totalMovements}`
         ]);
 
         worksheetEntry.addRow([
-            `Movimientos de ${start.toLocaleDateString()} a ${end.toLocaleDateString()}: ${totalMovements}`
+            `Movimientos de ${startDate} a ${endDate}: ${totalMovements}`
         ]);
 
         const fileName = `Movements-${startDate}-${endDate}.xlsx`;
