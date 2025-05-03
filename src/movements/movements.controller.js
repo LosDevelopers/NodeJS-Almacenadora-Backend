@@ -84,6 +84,7 @@ export const getMovements = async (req, res) => {
     try {
         const movements = await Movement.find()
             .populate('product', 'name') 
+            .populate('employee', 'email')
             .sort({ date: -1 }); 
 
         return res.status(200).json({
