@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "6816a52949c9f03ebbd879ee"
+  },
+  "name": "Admin",
+  "email": "admin@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$pilh70G9qTLnILxhKqhcpA$bICh6ZHAvevvReEpN9hgJX2BFaJ/x2+5sv2LXQP7Z7M",
+  "role": "ADMIN_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-05-03T23:22:17.216Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6816a62849c9f03ebbd879f2"
+  },
+  "name": "John Doe",
+  "email": "johndoea@example.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$kAkUK8r57C7RjPFuDncrkw$NndWV/OS4y/MBlni66PNCl3N82YsBk/rK4qJPQizSRA",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-05-03T23:26:32.955Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6816a64849c9f03ebbd879f7"
+  },
+  "name": "Raul Alejandro",
+  "email": "raulito@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$VSkojCVkAIJvJscU4//jeA$XnsXY0H3v66nQDuoucYqfwqw26ukKhtpfPu0PzZDFoA",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-05-03T23:27:04.344Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6816a68c49c9f03ebbd879fa"
+  },
+  "name": "Fernando",
+  "email": "feidd@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$TKg3ID6FcG7mEyZLutsfDg$WrOFCgrD2ep2yg5/gqOmG/U6lvowQKGx99+aIxYCMMM",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "registerdate": {
+    "$date": "2025-05-03T23:28:12.617Z"
+  },
+  "__v": 0
+}]

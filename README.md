@@ -8,6 +8,7 @@ Este documento te guiará para **descargar y utilizar** la colección de Postman
 
 - Tener **Postman** instalado. Puedes descargarlo aquí: [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 - Asegúrate que tu proyecto backend esté corriendo (ejemplo: `npm run dev` o `node index.js`).
+- Añade la data de los modelos para tener data ya cargada y funcional 
 
 ---
 

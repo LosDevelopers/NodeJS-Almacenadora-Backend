@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "6816ab6b49c9f03ebbd87a3e"
+  },
+  "product": {
+    "$oid": "6816ab2e49c9f03ebbd87a36"
+  },
+  "type": "entry",
+  "quantity": 10,
+  "entryDate": {
+    "$date": "2025-05-03T00:00:00.000Z"
+  },
+  "note": "ingrerso de productos b",
+  "employee": {
+    "$oid": "6816a64849c9f03ebbd879f7"
+  },
+  "createdAt": {
+    "$date": "2025-05-03T23:48:59.071Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:48:59.071Z"
+  }
+}]

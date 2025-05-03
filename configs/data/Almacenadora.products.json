@@ -1,0 +1,208 @@
+[{
+  "_id": {
+    "$oid": "6816a80a49c9f03ebbd87a13"
+  },
+  "name": "Monitor",
+  "price": 1500,
+  "description": "High-performance monitor to gaming ",
+  "category": "Electronics",
+  "amount": 25,
+  "supplier": {
+    "$oid": "6816a71b49c9f03ebbd87a08"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:34:34.454Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:34:34.454Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816a91a49c9f03ebbd87a18"
+  },
+  "name": "Mouse",
+  "price": 1500,
+  "description": "High-performance mouse to gaming ",
+  "category": "Electronics",
+  "amount": 25,
+  "supplier": {
+    "$oid": "6816a71b49c9f03ebbd87a08"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:39:06.911Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:39:06.911Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816a93949c9f03ebbd87a1d"
+  },
+  "name": "Mouse",
+  "price": 1500,
+  "description": "High-performance mouse to gaming ",
+  "category": "Electronics",
+  "amount": 250,
+  "supplier": {
+    "$oid": "6816a71b49c9f03ebbd87a08"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:39:37.803Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:39:37.803Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816a95049c9f03ebbd87a22"
+  },
+  "name": "Keyword",
+  "price": 1500,
+  "description": "High-performance Keyword to gaming ",
+  "category": "Electronics",
+  "amount": 250,
+  "supplier": {
+    "$oid": "6816a71b49c9f03ebbd87a08"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:40:00.881Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:40:00.881Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816a9b249c9f03ebbd87a27"
+  },
+  "name": "Headphones",
+  "price": 1500,
+  "description": "High-performance Headphones to gaming ",
+  "category": "Electronics",
+  "amount": 250,
+  "supplier": {
+    "$oid": "6816a71b49c9f03ebbd87a08"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:41:38.269Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:41:38.269Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816aa0149c9f03ebbd87a2c"
+  },
+  "name": "Nike Cortez",
+  "price": 1500,
+  "description": "Casually style",
+  "category": "Electronics",
+  "amount": 250,
+  "supplier": {
+    "$oid": "6816a73449c9f03ebbd87a0c"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:42:57.165Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:42:57.165Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816aab449c9f03ebbd87a31"
+  },
+  "name": "Spikes white-black",
+  "price": 2000,
+  "description": "Casually style",
+  "category": "Electronics",
+  "amount": 250,
+  "supplier": {
+    "$oid": "6816a73449c9f03ebbd87a0c"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:45:56.946Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:45:56.946Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6816ab2e49c9f03ebbd87a36"
+  },
+  "name": "Predator Adidas",
+  "price": 2500,
+  "description": "Running",
+  "category": "Electronics",
+  "amount": 260,
+  "supplier": {
+    "$oid": "6816a73449c9f03ebbd87a0c"
+  },
+  "entryDate": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "expirationDate": {
+    "$date": "2026-05-01T00:00:00.000Z"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-03T23:47:58.093Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T23:48:59.064Z"
+  }
+}]
