@@ -23,14 +23,13 @@ const productSchema = Schema({
     },
     amount: {
         type: Number,
-        required: [true, 'Amount is required'],
-        min: [0, 'Amount must be greater than or equal to 0']
+        required: true
     },
-    /*supplier: {
+    supplier: {
         type: Schema.Types.ObjectId,
         ref: 'Supplier',
         required: [true, 'Supplier is required']
-    },*/
+    },
     entryDate: {
         type: Date,
         required: [true, 'Entry date is required'],

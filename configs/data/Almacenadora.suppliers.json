@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6816a6cf49c9f03ebbd87a00"
+  },
+  "name": "La popular",
+  "email": "acliente@ilpsa.com",
+  "phone": 24200202,
+  "address": "zona 6",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6816a71b49c9f03ebbd87a08"
+  },
+  "name": "Intelaf",
+  "email": "intelaf@ilpsa.com",
+  "phone": 24200202,
+  "address": "zona 6",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6816a73449c9f03ebbd87a0c"
+  },
+  "name": "Sportline",
+  "email": "sport@ilpsa.com",
+  "phone": 24200202,
+  "address": "zona 6",
+  "status": true,
+  "__v": 0
+}]

@@ -19,7 +19,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         default: "CLIENT_ROLE",
-        enum: ["ADMIN_ROLE", "CLIENT_ROLE", "HOST_ROLE"]
+        enum: ["ADMIN_ROLE", "CLIENT_ROLE"]
     },
     registerdate: {
         type: Date,

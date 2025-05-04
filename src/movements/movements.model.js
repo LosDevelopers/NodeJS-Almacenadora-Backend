@@ -16,16 +16,23 @@ const movementSchema = Schema({
         required: [true, 'Quantity is required'],
         min: [1, 'Quantity must be at least 1']
     },
-    date: {
+    entryDate: {
         type: Date,
-        default: Date.now,
-        required: true
+    },
+    departureDate: {
+        type: Date,
     },
     note: {
         type: String,
         maxlength: [255, 'Note must be less than 255 characters']
     },
-    
+    destination: {
+        type: String,
+    },
+    employee: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
 }, {
     versionKey: false,
     timestamps: true

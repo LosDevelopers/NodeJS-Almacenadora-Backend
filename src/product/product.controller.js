@@ -1,29 +1,49 @@
 import Product from './product.model.js';
+import Supplier from '../supplier/supplier.model.js'; 
 
 export const addProduct = async (req, res) => {
     try {
-        const data = req.body;
+        const { name, price, description, category, amount, supplier, entryDate, expirationDate } = req.body;
 
-        const product = await Product.create(data);
+        const existingSupplier = await Supplier.findById(supplier);
+        if (!existingSupplier) {
+            return res.status(404).json({
+                message: 'Supplier not found'
+            });
+        }
+
+        // Crear el producto
+        const product = await Product.create({
+            name,
+            price,
+            description: description || '', 
+            category: category || '', 
+            amount: amount || 0,
+            supplier,
+            entryDate: entryDate || Date.now(), 
+            expirationDate: expirationDate || null 
+        });
+
+        const populatedProduct = await product.populate('supplier', 'name email phone address');
 
         return res.status(201).json({
             message: 'Product created successfully',
-            product
+            product: populatedProduct
         });
-    } catch ( err ) {
+    } catch (err) {
         return res.status(500).json({
             message: 'Error creating product',
             error: err.message
         });
-    } 
-}
+    }
+};
 
 export const getproduct = async (req, res) => {
     try {
         const { pid } = req.params;
-        const product = await Product.findById(pid);
+        const product = await Product.findById(pid).populate('supplier', 'name email phone address');
 
-        if ( !product ) {
+        if (!product) {
             return res.status(404).json({
                 success: false,
                 message: 'Product not found'
@@ -33,31 +53,30 @@ export const getproduct = async (req, res) => {
         return res.status(200).json({
             success: true,
             product
-        })
-
-    } catch ( err ) {
+        });
+    } catch (err) {
         return res.status(500).json({
             message: 'Error getting product',
             error: err.message
         });
     }
-}
+};
 
 export const getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
+        const products = await Product.find().populate('supplier', 'name email phone address');
 
         return res.status(200).json({
             success: true,
             products
         });
-    } catch ( err ) {
+    } catch (err) {
         return res.status(500).json({
             message: 'Error getting products',
             error: err.message
         });
     }
-}
+};
 
 export const getProductsAdvanced = async (req, res) => {
     try {
@@ -76,7 +95,7 @@ export const getProductsAdvanced = async (req, res) => {
                 .sort({ name: sortOrder })
                 .skip(Number(skip))
                 .limit(Number(limit))
-                //.populate('supplier'),
+                .populate('supplier', 'name email phone address'),
         ]);
 
         return res.status(200).json({
@@ -97,9 +116,9 @@ export const updateProduct = async (req, res) => {
         const { pid } = req.params;
         const data = req.body;
 
-        const product = await Product.findByIdAndUpdate(pid, data, { new: true });
+        const product = await Product.findByIdAndUpdate(pid, data, { new: true }).populate('supplier', 'name email phone address');
 
-        if ( !product ) {
+        if (!product) {
             return res.status(404).json({
                 success: false,
                 message: 'Product not found'
@@ -111,22 +130,21 @@ export const updateProduct = async (req, res) => {
             message: 'Product updated successfully',
             product
         });
-    } catch ( err ) {
+    } catch (err) {
         return res.status(500).json({
             message: 'Error updating product',
             error: err.message
         });
     }
-}
+};
 
 export const deleteProduct = async (req, res) => {
     try {
-
         const { pid } = req.params;
 
-        const product = await Product.findByIdAndUpdate(pid, { status: false }, { new: true });
+        const product = await Product.findByIdAndUpdate(pid, { status: false }, { new: true }).populate('supplier', 'name email phone address');
 
-        if ( !product ) {
+        if (!product) {
             return res.status(404).json({
                 success: false,
                 message: 'Product not found'
@@ -138,10 +156,10 @@ export const deleteProduct = async (req, res) => {
             message: 'Product deleted successfully',
             product
         });
-    } catch ( err ) {
+    } catch (err) {
         return res.status(500).json({
             message: 'Error deleting product',
             error: err.message
         });
     }
-}
+};

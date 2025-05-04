@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "21076238-620e-4e16-9bfe-31397d5233b5",
+		"_postman_id": "6e670871-78f0-489f-b415-942219c9c7f2",
 		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41959681"
+		"_exporter_id": "38544411"
 	},
 	"item": [
 		{
@@ -429,14 +429,14 @@
 			"name": "movements",
 			"item": [
 				{
-					"name": "newMovement",
+					"name": "entry",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU1OTgwNDMsImV4cCI6MTc0NTYwMTY0M30.ywnHDzDk6YauM88nfR9z243gdLbtlwTWbttcCUUushg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU3OTM5ODMsImV4cCI6MTc0NTc5NzU4M30.PJNtEvrrZ8-8Fddkoafte2_Eeq_cxVLbBQJzUd3ZWsY",
 									"type": "string"
 								}
 							]
@@ -445,7 +445,51 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"product\": \"680bb6c1be2accb333fbfcc2\",\r\n    \"type\": \"entry\",\r\n    \"quantity\": \"10\",\r\n    \"note\": \"ingrerso de productos\"\r\n}",
+							"raw": "{\r\n    \"product\": \"680bb6c1be2accb333fbfcc2\",\r\n    \"type\": \"entry\",\r\n    \"quantity\": \"10\",\r\n    \"note\": \"ingrerso de productos b\",\r\n    \"employee\": \"680bb621be2accb333fbfcbb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/newMovement",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"newMovement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU3OTM5ODMsImV4cCI6MTc0NTc5NzU4M30.PJNtEvrrZ8-8Fddkoafte2_Eeq_cxVLbBQJzUd3ZWsY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"680bb6c1be2accb333fbfcc2\",\r\n    \"type\": \"exit\",\r\n    \"quantity\": \"10\",\r\n    \"note\": \"ingrerso de productos c\",\r\n    \"destination\": \"Empresa 1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -573,6 +617,87 @@
 								"movements",
 								"movement",
 								"680bb6c1be2accb333fbfcc2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMovement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDYyMzI2NzIsImV4cCI6MTc0NjIzNjI3Mn0.ZoFDTDzzU2U25f3Ifx4SDfmrI__0c4jPFITMi92l1V4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 15,\r\n    \"note\": \"Actualización de movimiento\",\r\n    \"destination\": \"Empresa ABC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movementsUpdate/68156bd0799c3c6de672e912",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"movementsUpdate",
+								"68156bd0799c3c6de672e912"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMovements",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODA2ZDdlY2RhNWRhNGM4YmRhZTg0YWYiLCJpYXQiOjE3NDYyMzI2NzIsImV4cCI6MTc0NjIzNjI3Mn0.ZoFDTDzzU2U25f3Ifx4SDfmrI__0c4jPFITMi92l1V4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/Almacenadora/v1/movements/movementsDelete/68156bd0799c3c6de672e912",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"movements",
+								"movementsDelete",
+								"68156bd0799c3c6de672e912"
 							]
 						}
 					},
@@ -776,6 +901,178 @@
 								"680c34502c2381467ab0c198"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "inventory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU3NjQxNzEsImV4cCI6MTc0NTc2Nzc3MX0.R_TtGvR8l05zOgHaIpcoTSNIIbwSEI3kQ3zgiix6CQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/reports/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"reports",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MTAwODgsImV4cCI6MTc0NTgxMzY4OH0.w1i7AoPSW2T7f9N82ArNzqiEI8bxd6W5Zw9fh-4tCtw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/reports/statistics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"reports",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBiYjYxMGJlMmFjY2IzMzNmYmZjYjgiLCJpYXQiOjE3NDU4MDU2NTEsImV4cCI6MTc0NTgwOTI1MX0.sTzgYaWxApWWNpKLAfnoY6U6o5M6XjJlvw8jH30X9i4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"directory\": \"C:\\\\Users\\\\jdfig\\\\Downloads\",\r\n    \"startDate\": \"2024-04-27\",\r\n    \"endDate\": \"2025-04-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/reports/movements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"reports",
+								"movements"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "Expiring",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/alerts/expiring",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"alerts",
+								"expiring"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LowStock",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}

@@ -29,7 +29,7 @@ export const validatorUpdateSupplier = [
     hasRoles("ADMIN_ROLE"),
     param("uid").optional().isMongoId().custom(supplierExists).withMessage("Not a valid ID"),
     body("name").optional().notEmpty().withMessage("Name is required"),
-    body("email").optional().isEmail().custom(emailExistsSupplier).withMessage("It is not a valid email"),
+    body("email").optional().isEmail().withMessage("It is not a valid email"),
     body("phone").optional().isNumeric().withMessage("Phone must be a number"),
     body("address").optional().isString().withMessage("Address must be a string"),
     validateField,
