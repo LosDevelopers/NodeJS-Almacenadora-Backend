@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getUserById, getUsers, deleteUserClient, updatePassword, updateUserUser } from "./user.controller.js";
-import { getUserByIdValidator, updatePasswordValidator, deleteUserValidatorAdmin, updateUserValidatorClient } from "../middlewares/user-validator.js";
+import { getUserById, getUsers, deleteUserClient, updatePassword, updateUserAdmin } from "./user.controller.js";
+import { getUserByIdValidator, updatePasswordValidator, deleteUserValidatorAdmin, updateUserValidatorAdmin } from "../middlewares/user-validator.js";
 
 const router = Router();
 
@@ -106,6 +106,6 @@ router.patch("/updatePassword", updatePasswordValidator, updatePassword);
  *       400:
  *         description: Validation error
  */
-router.put("/updateUser", updateUserValidatorClient, updateUserUser);
+router.put("/updateUser/:uid", updateUserValidatorAdmin, updateUserAdmin);
 
 export default router;
