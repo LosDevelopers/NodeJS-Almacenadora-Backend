@@ -1042,6 +1042,41 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "Expiring",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/Almacenadora/v1/alerts/expiring",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"Almacenadora",
+								"v1",
+								"alerts",
+								"expiring"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LowStock",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
