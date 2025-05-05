@@ -4,8 +4,8 @@ import { validatorGenerateReport, validatorGenerateMovements} from "../middlewar
 
 const router = Router()
 
-router.get("/inventory", validatorGenerateReport, generateInventory)
+router.post("/inventory", validatorGenerateReport, generateInventory)
 router.post("/movements", validatorGenerateMovements, generateMovements)
-router.get("/statistics", validatorGenerateReport, generateStats)
+router.post("/statistics", validatorGenerateReport, generateStats)
 
 export default router
